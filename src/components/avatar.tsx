@@ -1,16 +1,25 @@
 import * as React from "react";
 import Image from "next/image";
-import avatar from "@/static/images/avatar.png";
+import { StaticImageData } from "next/image";
 
-export default function Avatar() {
+export interface AvatarProps {
+  size: string;
+  src: StaticImageData;
+  figureClass: string;
+  imageClass: string;
+  alt: string;
+}
+
+export default function Avatar({
+  size,
+  src,
+  figureClass,
+  imageClass,
+  alt,
+}: AvatarProps) {
   return (
-    <div>
-      <style jsx>{`
-        div {
-          background: red;
-        }
-      `}</style>
-      <Image src={avatar} alt="avatar" />
-    </div>
+    <figure className={`image ${size} ${figureClass}`}>
+      <Image className={imageClass} src={src} alt={alt} />
+    </figure>
   );
 }
