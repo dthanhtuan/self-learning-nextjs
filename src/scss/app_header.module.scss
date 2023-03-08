@@ -1,4 +1,39 @@
-.appHeader {
+@import "bulma/sass/utilities/mixins.sass";
+
+.main {
   background-color: #4f97fc;
-  color: white;
+
+  @include until(310px) {
+    display: block !important;
+  }
+
+  @include from(310px) {
+    display: flex;
+  }
+}
+.avatarSection {
+  // override the width from bulma style
+
+  @include from(768px) {
+    width: 30% !important;
+  }
+
+  @include tablet-only {
+    width: 15% !important;
+  }
+
+  @include desktop-only {
+    width: 12% !important;
+  }
+
+  @include widescreen {
+    width: 10% !important;
+  }
+}
+
+.subtitle {
+  font-weight: lighter;
+}
+.title {
+  font-size: 2.5rem;
 }
